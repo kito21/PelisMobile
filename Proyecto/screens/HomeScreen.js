@@ -25,7 +25,7 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           
 
-          <Text style={styles.getStartedText}>Mis Peliculas</Text>
+          <Text style={styles.getStartedText}>Mis Pelis</Text>
 
           
 
