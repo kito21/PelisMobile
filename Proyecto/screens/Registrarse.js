@@ -8,7 +8,7 @@ import {
 
 export default class SignUp extends React.Component {
   state = {
-    email: '', password: ''
+    email: '', password: '', password2: ''
   }
   onChangeText = (key, val) => {
     this.setState({ [key]: val })
@@ -41,27 +41,23 @@ export default class SignUp extends React.Component {
           placeholderTextColor='gray'
           onChangeText={val => this.onChangeText('password', val)}
         />
+        <TextInput
+          style={styles.input}
+          placeholder='Re-Contraseña'
+          autoCapitalize="none"
+          placeholderTextColor='gray'
+          secureTextEntry={true}
+          onChangeText={val => this.onChangeText('password2', val)}
+        />
 
         <View style={styles.container3}>
         <View style={styles.btn}>
         <Button
         color='rgb(0,0,0)'
           style={styles.button}
-          title='Ingresar'
-          onPress={this.signUp}
-        />
-
-        <View style={styles.container4}>
-        <View style={styles.btn2}>
-        <Button
-        color='rgb(0,0,0)'
-          style={styles.button}
           title='Registrarse'
           onPress={this.signUp}
         />
-      </View>
-
-      </View>
       </View>
       </View>
       </View>
@@ -101,25 +97,10 @@ const styles = StyleSheet.create({
     margin: 3,
     alignItems: 'center'
   },
-  container4: {
-    flex: 1,
-    margin: 150,
-    alignItems: 'center'
-  },
   btn: {
     width: 350,
     height: 45,
     backgroundColor: 'rgb(50,156,129)',
-    margin: 10,
-    padding: 8,
-    borderRadius: 14,
-    fontSize: 18,
-    fontWeight: '200',
-  },
-  btn2: {
-    width: 350,
-    height: 45,
-    backgroundColor: '#00e5ff',
     margin: 10,
     padding: 8,
     borderRadius: 14,
