@@ -25,6 +25,7 @@ export default class SignUp extends React.Component {
 
   render() {
     return (
+      
         <View style={styles.container2}>
         <TextInput
           style={styles.input}

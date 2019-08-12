@@ -4,11 +4,16 @@ import {
   Button,
   TextInput,
   StyleSheet,
+  Overlay,
 } from 'react-native'
+import { Text } from 'react-native-elements';
 
 export default class SignUp extends React.Component {
+
+  static navigationOptions = {title:'Mis Peliculas'};
+
   state = {
-    email: '', password: ''
+    email: '', password: '', open: false
   }
   onChangeText = (key, val) => {
     this.setState({ [key]: val })
@@ -21,10 +26,17 @@ export default class SignUp extends React.Component {
       console.log('error signing up: ', err)
     }
     ApiController.GuardarSignUp(this.state) 
+
+handleClickOpen=()=>{
+  this.setState({open:true});
+}
+
   }
 
   render() {
+    const open = this.state.open;
     return (
+
         <View style={styles.container2}>
         <TextInput
           style={styles.input}
@@ -58,7 +70,21 @@ export default class SignUp extends React.Component {
           style={styles.button}
           title='Registrarse'
           onPress={this.signUp}
+          onClick={this.handleClickOpen}
         />
+        {/* <Overlay
+        isVisible={this.state.isVisible}
+        windowBackgroundColor="rgba(255, 255, 255, .5)"
+        overlayBackgroundColor="red"
+        width="auto"
+        height="auto"
+      >
+      <Text>Hello from Overlay!</Text>
+      </Overlay>   */}
+
+
+
+
       </View>
 
       </View>
