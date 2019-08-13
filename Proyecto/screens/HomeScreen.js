@@ -8,8 +8,6 @@ import {
 } from 'react-native'
 
 
-
-
 export default class SignUp extends React.Component {
 
   static navigationOptions = {title:'Mis Peliculas'};
@@ -59,12 +57,12 @@ export default class SignUp extends React.Component {
         />
 
         <View style={styles.container3}>
-        <View style={styles.btn}>
         <Button onPress={() => {
               this.onPressEnviarDatos();
             }}
         color='rgb(0,0,0)'
-          style={styles.button}
+        style={styles.touchable}
+        buttonStyle={styles.boton}
           title='Ingresar'
          
         />
@@ -84,7 +82,7 @@ export default class SignUp extends React.Component {
       </View>
       </View>
       </View>
-      </View>
+   
     )
   }
 }
@@ -145,6 +143,20 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     fontSize: 18,
     fontWeight: '200',
+<<<<<<< HEAD
   }
 })
 
+=======
+  },
+  touchable: {
+    marginLeft: '10%',
+    width: '80%',
+},
+boton:{
+    marginLeft: '20%',
+    marginRight: '20%',
+
+}
+})
+>>>>>>> 3b7f8d4297a98d439b8949b5a49ff3daba5290a6
