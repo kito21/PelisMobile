@@ -6,7 +6,12 @@ import {
   StyleSheet,
   
 } from 'react-native'
+<<<<<<< HEAD
 
+=======
+import { Text } from 'react-native-elements';
+import { createBottomTabNavigator, createAppContainer, TabNavigator, createStackNavigator } from 'react-navigation';
+>>>>>>> 3b7f8d4297a98d439b8949b5a49ff3daba5290a6
 
 export default class SignUp extends React.Component {
 
@@ -64,6 +69,7 @@ export default class SignUp extends React.Component {
         style={styles.touchable}
         buttonStyle={styles.boton}
           title='Ingresar'
+<<<<<<< HEAD
          
         />
 
@@ -80,6 +86,17 @@ export default class SignUp extends React.Component {
       </View>
 
       </View>
+=======
+        />
+
+        <View style={styles.container4}>
+              <Button 
+                title="Registrarse"
+                style={styles.touchable}
+                buttonStyle={styles.boton}
+                onPress={() => { navigator.navigate('Registro')}}
+                > </Button>  
+>>>>>>> 3b7f8d4297a98d439b8949b5a49ff3daba5290a6
       </View>
       </View>
    
@@ -144,10 +161,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '200',
 <<<<<<< HEAD
+<<<<<<< HEAD
   }
 })
 
 =======
+=======
+>>>>>>> 3b7f8d4297a98d439b8949b5a49ff3daba5290a6
   },
   touchable: {
     marginLeft: '10%',
