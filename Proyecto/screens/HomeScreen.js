@@ -7,7 +7,9 @@ import {
   Overlay,
 } from 'react-native'
 import { Text } from 'react-native-elements';
-import Register from 'D:\Proyectos VisualCode\TP Pelis\PelisMobile\Proyecto\screens\Registrarse.js';
+import { createBottomTabNavigator, createAppContainer, TabNavigator, createStackNavigator } from 'react-navigation';
+
+import Registrarse from '../screens/Registrarse';
 
 export default class SignUp extends React.Component {
 
@@ -28,7 +30,7 @@ export default class SignUp extends React.Component {
     } catch (err) {
       console.log('error signing up: ', err)
     }
-    ApiController.GuardarSignUp(this.state) //Buscar ApiController
+    //ApiController.GuardarSignUp(this.state) //Buscar ApiController
   }
 
   onPressEnviarDatos() {
@@ -70,7 +72,7 @@ export default class SignUp extends React.Component {
         <View style={styles.container4}>
         <View style={styles.btn2}>
         <Button onPress={() => {
-              this.props.navigation.navigate('Register')
+              this.props.navigation.navigate('Registrar')
             }}
         color='rgb(0,0,0)'
           style={styles.button}
@@ -148,8 +150,8 @@ const styles = StyleSheet.create({
 })
 
 const ROOTSTACK = createStackNavigator({
-  Register: {
-    screen: Register,
+  Registrar: {
+    screen: Registrarse,
     navigationOptions: {
       header: null,
     },
