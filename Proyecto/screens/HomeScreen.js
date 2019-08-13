@@ -7,6 +7,7 @@ import {
   Overlay,
 } from 'react-native'
 import { Text } from 'react-native-elements';
+import Register from 'D:\Proyectos VisualCode\TP Pelis\PelisMobile\Proyecto\screens\Registrarse.js';
 
 export default class SignUp extends React.Component {
 
@@ -15,9 +16,11 @@ export default class SignUp extends React.Component {
   state = {
     email: '', password: '', open: false
   }
+
   onChangeText = (key, val) => {
     this.setState({ [key]: val })
   }
+
   signUp = async () => {
     const { email, password } = this.state
     try {
@@ -25,12 +28,11 @@ export default class SignUp extends React.Component {
     } catch (err) {
       console.log('error signing up: ', err)
     }
-    ApiController.GuardarSignUp(this.state) 
+    ApiController.GuardarSignUp(this.state) //Buscar ApiController
+  }
 
-handleClickOpen=()=>{
-  this.setState({open:true});
-}
-
+  onPressEnviarDatos() {
+     this.signUp()
   }
 
   render() {
@@ -56,7 +58,9 @@ handleClickOpen=()=>{
 
         <View style={styles.container3}>
         <View style={styles.btn}>
-        <Button
+        <Button onPress={() => {
+              this.onPressEnviarDatos();
+            }}
         color='rgb(0,0,0)'
           style={styles.button}
           title='Ingresar'
@@ -65,25 +69,14 @@ handleClickOpen=()=>{
 
         <View style={styles.container4}>
         <View style={styles.btn2}>
-        <Button
+        <Button onPress={() => {
+              this.props.navigation.navigate('Register')
+            }}
         color='rgb(0,0,0)'
           style={styles.button}
           title='Registrarse'
-          onPress={this.signUp}
-          onClick={this.handleClickOpen}
+
         />
-        {/* <Overlay
-        isVisible={this.state.isVisible}
-        windowBackgroundColor="rgba(255, 255, 255, .5)"
-        overlayBackgroundColor="red"
-        width="auto"
-        height="auto"
-      >
-      <Text>Hello from Overlay!</Text>
-      </Overlay>   */}
-
-
-
 
       </View>
 
@@ -152,4 +145,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '200',
   }
+})
+
+const ROOTSTACK = createStackNavigator({
+  Register: {
+    screen: Register,
+    navigationOptions: {
+      header: null,
+    },
+  },
 })
