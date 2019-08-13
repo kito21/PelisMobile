@@ -27,9 +27,7 @@ export default class MovieProfile extends React.Component {
       const URLIMG = "https://image.tmdb.org/t/p/w600_and_h900_bestv2"
 
         return (
-          <ImageBackground
-          source={{ uri: 'https://iphoneswallpapers.com/wp-content/uploads/2018/11/Cartoons-watching-Movie-iPhone-Wallpaper-469x832.jpg' }}
-          style={styles.backgroundImage}>
+          <View>
     <ScrollView style={styles.scroll}>
     <Image style={{position:'relative', width: '100%', height: 200, resizeMode: 'contain', justifyContent: 'center', }}
                         source={{ uri: URLIMG + this.props.movie.poster_path }}
@@ -44,7 +42,7 @@ export default class MovieProfile extends React.Component {
     
     </ScrollView>
     
-    </ImageBackground>
+    </View>
         )
         }
       }
@@ -86,12 +84,6 @@ const styles = StyleSheet.create({
         padding:20,
         fontWeight:'bold',
   },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    padding: 20,
-    justifyContent: 'center',
-
-  }
+  
 })
 const resizeMode = 'center';
