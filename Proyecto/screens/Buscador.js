@@ -3,7 +3,8 @@ import { ScrollView, Text } from 'react-native';
 import { SearchBar, ListItem } from 'react-native-elements';
 
 
-const URL = "https://api.themoviedb.org/3/movie/550?api_key=d6941517cb63cfbde501a7b188c56f6f";
+const URL = "https://api.themoviedb.org/3/movie/550?api_key=";
+const apiKEY="d6941517cb63cfbde501a7b188c56f6f";
 
 export default class Buscador extends Component {
   
@@ -19,13 +20,14 @@ export default class Buscador extends Component {
 
     let movies = [];
 
-    if (texto.length > 3) {
+    if (texto.length > 4) {
 
-      fetch(`${URL}${texto}`)
+      fetch(`${URL}${apiKEY}${texto}`)
       .then(result => result.json())
+   
       .then(movies_json => {
         if (movies_json.Response == "True") {
-          movies_json.Search.forEach(movie_value => {
+          movies_json.texto.forEach(movie_value => {
             let { poster_path, title, release_date, id } = movie_value;
             let movie = {poster_path, title, release_date, id};
             movies.push(movie);
