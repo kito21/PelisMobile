@@ -9,14 +9,14 @@ import {
 import { Text } from 'react-native-elements';
 import { createBottomTabNavigator, createAppContainer, TabNavigator, createStackNavigator } from 'react-navigation';
 
-import Registrarse from '../screens/Registrarse';
+
 
 export default class SignUp extends React.Component {
 
   static navigationOptions = {title:'Mis Peliculas'};
 
   state = {
-    email: '', password: '', open: false
+    email: '', password: ''
   }
 
   onChangeText = (key, val) => {
