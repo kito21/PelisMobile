@@ -9,8 +9,6 @@ import {
 import { Text } from 'react-native-elements';
 import { createBottomTabNavigator, createAppContainer, TabNavigator, createStackNavigator } from 'react-navigation';
 
-
-
 export default class SignUp extends React.Component {
 
   static navigationOptions = {title:'Mis Peliculas'};
@@ -71,9 +69,7 @@ export default class SignUp extends React.Component {
 
         <View style={styles.container4}>
         <View style={styles.btn2}>
-        <Button onPress={() => {
-              this.props.navigation.navigate('Registrar')
-            }}
+        <Button onPress={() => { navigator.navigate('Registro')}}
         color='rgb(0,0,0)'
           style={styles.button}
           title='Registrarse'
@@ -147,13 +143,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '200',
   }
-})
-
-const ROOTSTACK = createStackNavigator({
-  Registrar: {
-    screen: Registrarse,
-    navigationOptions: {
-      header: null,
-    },
-  },
 })
