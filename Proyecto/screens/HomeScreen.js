@@ -57,28 +57,22 @@ export default class SignUp extends React.Component {
         />
 
         <View style={styles.container3}>
-        <View style={styles.btn}>
         <Button onPress={() => {
               this.onPressEnviarDatos();
             }}
         color='rgb(0,0,0)'
-          style={styles.button}
+        style={styles.touchable}
+        buttonStyle={styles.boton}
           title='Ingresar'
-          onPress={this.signUp}
         />
 
         <View style={styles.container4}>
-        <View style={styles.btn2}>
-        <Button onPress={() => { navigator.navigate('Registro')}}
-        color='rgb(0,0,0)'
-          style={styles.button}
-          title='Registrarse'
-
-        />
-
-      </View>
-
-      </View>
+              <Button 
+                title="Registrarse"
+                style={styles.touchable}
+                buttonStyle={styles.boton}
+                onPress={() => { navigator.navigate('Registro')}}
+                > </Button>  
       </View>
       </View>
       </View>
@@ -142,5 +136,14 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     fontSize: 18,
     fontWeight: '200',
-  }
+  },
+  touchable: {
+    marginLeft: '10%',
+    width: '80%',
+},
+boton:{
+    marginLeft: '20%',
+    marginRight: '20%',
+
+}
 })
