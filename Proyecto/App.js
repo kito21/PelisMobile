@@ -6,6 +6,9 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
+import {  createStackNavigator } from 'react-navigation';
+import ProfileMovie from './Profe/ProfileMovie'
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -60,3 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#8e24aa',
   },
 });
+
+
+
+

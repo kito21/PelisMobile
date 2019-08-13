@@ -36,7 +36,7 @@ export default class List extends React.Component {
                             <TouchableOpacity
                                 key={item.id}
                                 style={styles.container}
-                                onPress={() => { navigator.navigate('ProfileMovie', {id: item.id})}}>
+                                onPress={() => { navigator.navigate('Perfil', {id: item.id})}}>
                                 <CustomRow
                                     title={item.title}
                                     description={item.vote_average}
