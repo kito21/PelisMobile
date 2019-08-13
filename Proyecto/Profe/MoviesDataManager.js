@@ -31,7 +31,7 @@ export default class MoviesDataManager {
                 console.error(error);
             });
     }
-    getPopularMovies(callback) {
+   /* getPopularMovies(callback) {
         return fetch('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=49a6206e72d73e13c8690652f47703e2')
             .then((response) => response.json())
             .then((responseJson) => callback(responseJson))
@@ -39,4 +39,5 @@ export default class MoviesDataManager {
                 console.error(error);
             });
     }
+    */
 }

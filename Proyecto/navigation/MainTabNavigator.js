@@ -1,11 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
+import PerfilPli from '../Profe/ProfileMovie'
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import Search from '../Profe/SearchMovies';
 import SettingsScreen from '../screens/SettingsScreen';
+import Reg from '../screens/Registrarse';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -15,6 +16,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Registro: Reg,
   },
   config
 );
@@ -38,6 +40,7 @@ HomeStack.path = '';
 const LinksStack = createStackNavigator(
   {
     Links: Search,
+    Perfil: PerfilPli,
   },
   config
 );
@@ -66,6 +69,12 @@ SettingsStack.navigationOptions = {
 };
 
 SettingsStack.path = '';
+
+
+
+
+
+
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,

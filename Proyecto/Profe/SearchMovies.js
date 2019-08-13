@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View, TextInput, ScrollView, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import CommonDataManager from '../Profe/CommonDataManager';
 import MoviesDataManager from '../Profe/MoviesDataManager';
-
+import { SearchBar, Button  } from 'react-native-elements';
 import List from '../Profe/List'
+
 
 export default class SearchMovies extends React.Component {
     constructor() {
@@ -12,7 +13,7 @@ export default class SearchMovies extends React.Component {
             updated: true,
             filtro: ''
         }
-        MoviesDataManager.getInstance().getPopularMovies(this.updatePeliculas)
+        //MoviesDataManager.getInstance().getPopularMovies(this.updatePeliculas)
     }
     componentWillUnmount() {
         CommonDataManager.getInstance().refreshData()
@@ -27,31 +28,21 @@ export default class SearchMovies extends React.Component {
         this.setState({ updated: !this.state.updated });
         return responseJson.movies;
     }
-
     
+    static navigationOptions = {title:'Buscador'};
+
+   
 
     render() {
         const navigator = this.props.navigation;
 
 
         return (
-            <ImageBackground style={{ alignItems: "center", justifyContent: 'center' }}
-                source={{ uri: 'https://iphoneswallpapers.com/wp-content/uploads/2018/11/Cartoons-watching-Movie-iPhone-Wallpaper-469x832.jpg' }}
-                style={styles.backgroundImage}>
+            <View >
+                
                 <Text> </Text>
-                <Text> </Text>
-                <TextInput style={{
-                    height: 40,
-                    borderColor: 'gray',
-                    borderWidth: 1,
-                    marginTop: 5,
-                    width: '80%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'white',
-                    marginLeft: '10%',
-                }}
-                    placeholder=' Ingrese la pelicula a buscar...'
+                <SearchBar
+                    placeholder = "Buscar una Pelicula"
                     onChangeText={
                         (text) => {
                             this.setState(
@@ -63,48 +54,42 @@ export default class SearchMovies extends React.Component {
                             )
                         }
                     }
-                ></TextInput>
+                    value = { this.state.filtro }  
+                    />
+                <Text/>
 
-                <TouchableOpacity style={styles.touchable}
-                    onPress={() => {
+                <Button 
+                title="Buscar"
+                style={styles.touchable}
+                buttonStyle={styles.boton}
+                onPress={() => {
+                      
                         // console.log(this.state.filtro)
                         this.onPressBuscarPelicula(this.state.filtro)
                     }
                     }>
-                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
 
-                    </View>
-                    <Image
-                        style={{ padding: 30, width: '100%', height: 50, resizeMode: 'stretch' }}
-                        source={{ uri: 'http://www.clker.com/cliparts/F/2/D/B/l/f/search-button-hi.png' }}
-                    />
-
-                </TouchableOpacity>
+                </Button>    
+                <Text/>
                 <View>
                     <List navigator={navigator} />
-                </View>
 
-            </ImageBackground>
+                </View>
+                
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#add8e6',
-        justifyContent: 'center',
-
-    },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
+    
     touchable: {
         marginLeft: '10%',
         width: '80%',
-
+    },
+    boton:{
+        marginLeft: '20%',
+        marginRight: '20%',
+   
     }
 })
-const resizeMode = 'center';
